@@ -1,0 +1,42 @@
+<head>
+  <title>channels</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+</body>
+
+<template name="hello">
+  {{#if Template.subscriptionsReady}}
+    GROUP A
+    <ul>
+    {{#each channelsGroupA}}
+      {{> channel}}
+    {{/each}}
+  </ul>
+  GROUP B
+  <ul>
+  {{#each channelsGroupB}}
+    {{> channel}}
+  {{/each}}
+</ul>
+<p>
+<a id="add-white" href="#">add White to Group A</a>
+<hr>
+<form>
+  <label>Channel Name</label>
+  <input id="channel-name" type="text" placeholer="insert a color to assign to channel group B">
+  <p>
+    Select to which group to bind the channel:<br>
+    <input type="radio" name="group-name" value="Group A" id="group-a" checked> Group A<br>
+    <input type="radio" name="group-name" value="Group B" id="group-b"> Group B
+  </p>
+  <input type="submit" value="Insert">
+</form>
+</p>
+  {{else}}
+    loading ..
+  {{/if}}
+</template>
